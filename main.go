@@ -2,7 +2,7 @@ package main
 
 import (
 	"log"
-        "github.com/scorp200/GoSnek"
+        "github.com/scorp200/goSnek"
 	"github.com/hajimehoshi/ebiten/v2"
 )
 
