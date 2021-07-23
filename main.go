@@ -1,19 +1,13 @@
 package main
 
 import (
-	"log"
-        "github.com/scorp200/goSnek"
 	"github.com/hajimehoshi/ebiten/v2"
+	"github.com/scorp200/goSnek"
 )
 
 func main(){
-  game, err :=  snek.NewGame()
-  if err != nil {
-      log.Fatal(err)
-  }
-  ebiten.SetWindowSize(600,600)
-  ebiten.SetWindowTitle("Go snek")
-  if err := ebiten.RunGame(game); err != nil {
-    log.Fatal(err)
-  }
+  game = goSnek.NewGame()
+  ebiten.SetWindowSize(game.width, game.height)
+  ebiten.SetWindowTitle("go Snek") 
 }
+
