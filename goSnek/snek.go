@@ -59,16 +59,20 @@ func (g *Game) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeigh
 }
 
 func (g *Game) Update() error {
+	if dir, ok := g.Dir(); ok {
+		g.dir = dir
+	}
+
 	g.frameCount++
 	if g.frameCount >= 60/Fps {
 		g.frameCount = 0
 
-                g.pos = moveSnek(g.pos, g.dir)
+		g.pos = moveSnek(g.pos, g.dir)
 
 		g.body = append(g.body, Body{x: g.pos.x, y: g.pos.y})
 
 		for len(g.body) > g.snakeSize {
-                  g.body = removeAt(g.body, 0)
+			g.body = removeAt(g.body, 0)
 		}
 	}
 	return nil
